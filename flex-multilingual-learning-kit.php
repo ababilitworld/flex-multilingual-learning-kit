@@ -1,6 +1,6 @@
 <?php
 
-namespace AbabilIthub\FlexMultilingualLearningKit;
+namespace Ababilithub\FlexMultilingualLearningKit;
 
 /**
  * Flex Multilingual Learning Kit By Ababilithub
@@ -34,19 +34,11 @@ namespace AbabilIthub\FlexMultilingualLearningKit;
 
 require_once __DIR__ . '/bootstrap.php';
 
- use Ababilithub\{
+use Ababilithub\{
    FlexMultilingualLearningKit\Package\Package,
- };
-
- use const Ababilithub\FlexMultilingualLearningKit\{
-    PLUGIN_NAME,
-    PLUGIN_DIR,
-    PLUGIN_URL,
-    PLUGIN_FILE,
-    PLUGIN_VERSION
 };
  
-$package = Package::instance();
+$package = Package::getInstance();
      
 register_activation_hook(__FILE__, [$package, 'activate']);
 register_deactivation_hook(__FILE__, [$package, 'deactivate']);

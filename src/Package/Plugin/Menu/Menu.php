@@ -1,8 +1,9 @@
 <?php
 namespace Ababilithub\FlexMultilingualLearningKit\Package\Plugin\Menu;
 
-use Ababilitworld\{
-    FlexWordpressByAbabilitworld\Package\Menu\Base\Menu as BaseMenu,
+use Ababilithub\{
+    FlexWordpress\Package\Menu\Base\Menu as BaseMenu,
+    FlexMultilingualLearningKit\Package\Plugin\Language\Arabic\Alphabet\Presentation\Template\Template as AlphabetTemplate,
 };
 
 use const Ababilithub\{
@@ -42,18 +43,26 @@ if (!class_exists(__NAMESPACE__.'\Menu'))
 
             // Add submenus dynamically
             $this->add_submenu([
-                'page_title' => 'Color Schemes',
-                'menu_title' => 'Color Schemes',
+                'page_title' => 'Arabic',
+                'menu_title' => 'Arabic',
                 'capability' => 'manage_options',
-                'slug'       => 'color-schemes',
+                'slug'       => 'flex-multilingual-learning-kit-arabic',
                 'callback'   => [$this, 'render_submenu']
             ]);
 
             $this->add_submenu([
-                'page_title' => 'Typography',
-                'menu_title' => 'Typography',
+                'page_title' => 'English',
+                'menu_title' => 'English',
                 'capability' => 'manage_options',
-                'slug'       => 'typography',
+                'slug'       => 'flex-multilingual-learning-kit-english',
+                'callback'   => [$this, 'render_submenu']
+            ]);
+
+            $this->add_submenu([
+                'page_title' => 'Bangla',
+                'menu_title' => 'Bangla',
+                'capability' => 'manage_options',
+                'slug'       => 'flex-multilingual-learning-kit-bangla',
                 'callback'   => [$this, 'render_submenu']
             ]);
 
@@ -64,7 +73,8 @@ if (!class_exists(__NAMESPACE__.'\Menu'))
          */
         public function render_page(): void
         {
-            echo '<div class="wrap"><h1>Bismillah</h1></div>';
+            $template = new AlphabetTemplate();
+            echo AlphabetTemplate::alphabet_grid([]);
         }
 
         /**
@@ -72,7 +82,8 @@ if (!class_exists(__NAMESPACE__.'\Menu'))
          */
         public function render_submenu(): void
         {
-            echo '<div class="wrap"><h1>Under Construction !!!</h1></div>';
+            $template = new AlphabetTemplate();
+            echo AlphabetTemplate::alphabet_grid([]);
         }
 
         /**

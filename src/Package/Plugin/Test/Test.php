@@ -1,11 +1,8 @@
 <?php
 namespace Ababilithub\FlexMultilingualLearningKit\Package\Plugin\Test;
 
-use Ababilitworld\{
-    FlexTraitByAbabilitworld\Standard\Standard,
-};
-
 use Ababilithub\{
+    FlexPhp\Package\Mixin\Standard\V1\V1 as StandardMixin,
     FlexMultilingualLearningKit\Package\Plugin\Menu\Menu as TestMenu,
 };
 
@@ -25,7 +22,7 @@ if (!class_exists(__NAMESPACE__.'\Test'))
 {
     class Test 
     {
-        use Standard;
+        use StandardMixin;
         private $menu;
 
         public function __construct($data = []) 
@@ -36,7 +33,7 @@ if (!class_exists(__NAMESPACE__.'\Test'))
 
         public function init($data) 
         {
-            $this->menu = TestMenu::instance();      
+            $this->menu = TestMenu::getInstance();      
         }
     }
 }

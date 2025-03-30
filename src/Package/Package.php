@@ -3,20 +3,17 @@
 
     (defined( 'ABSPATH' ) && defined( 'WPINC' )) || exit();
 
-	use Ababilitworld\{
-		FlexTraitByAbabilitworld\Standard\Standard,
-	};
-
 	use Ababilithub\{
+		FlexPhp\Package\Mixin\Standard\V1\V1 as StandardMixin,
 		FlexMultilingualLearningKit\Package\Plugin\Test\Test as MultillkTest,
 	};
 
-	use const Ababilithub\FlexMultilingualLearningKit\{
-		PLUGIN_NAME,
-		PLUGIN_DIR,
-        PLUGIN_URL,
-		PLUGIN_FILE,
-		PLUGIN_VERSION
+	use const Ababilithub\{
+		FlexMultilingualLearningKit\PLUGIN_NAME,
+		FlexMultilingualLearningKit\PLUGIN_DIR,
+        FlexMultilingualLearningKit\PLUGIN_URL,
+		FlexMultilingualLearningKit\PLUGIN_FILE,
+		FlexMultilingualLearningKit\PLUGIN_VERSION
 	};
 
 	if ( ! class_exists( __NAMESPACE__.'\Package' ) ) 
@@ -28,7 +25,7 @@
 		 */
 		class Package 
 		{
-			use Standard;
+			use StandardMixin;
 	
 			/**
 			 * Package version
@@ -50,7 +47,7 @@
 
 			public function init($data)
 			{
-				$this->test  = MultillkTest::instance();
+				$this->test  = MultillkTest::getInstance();
 			}
 	
 			/**

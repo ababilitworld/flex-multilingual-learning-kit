@@ -1,5 +1,5 @@
 <?php
-namespace AbabilIthub\FlexMultilingualLearningKit;
+namespace Ababilithub\FlexMultilingualLearningKit;
 
 class Bootstrap
 {
